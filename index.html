@@ -1,371 +1,298 @@
+```html
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#fff4ef">
-<meta name="description" content="Mes de las Madres: tocá el corazón y descubrí tu sorpresa.">
-<title>Mes de las Madres 💗</title>
-
-<style>
-:root {
-  --rosa: #e83e79;
-  --rosa-claro: #ffe0e9;
-  --dorado: #d8a447;
-  --crema: #fff6ec;
-  --marron: #713c2b;
-}
-
-* { box-sizing: border-box; }
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  font-family: Georgia, "Times New Roman", serif;
-  color: var(--marron);
-  background:
-    radial-gradient(ellipse at top, #fff 0%, transparent 60%),
-    linear-gradient(145deg, #ffe5e7, var(--crema), #f9dce5);
-  overflow-x: hidden;
-}
-
-main {
-  width: min(100%, 560px);
-  margin: auto;
-  padding: 28px 20px 36px;
-  text-align: center;
-  position: relative;
-}
-
-.flores {
-  font-size: 30px;
-  letter-spacing: 5px;
-  margin: 4px 0 14px;
-}
-
-h1 {
-  font-size: clamp(35px, 9vw, 54px);
-  line-height: 1.05;
-  margin: 8px 0;
-  font-weight: normal;
-}
-
-h1 span {
-  display: block;
-  font-size: clamp(48px, 13vw, 76px);
-  color: var(--rosa);
-  font-style: italic;
-  text-shadow: 1px 2px 0 #fff, 0 4px 16px #e83e7933;
-}
-
-.subtitulo {
-  font-size: 19px;
-  margin: 18px 0 8px;
-}
-
-.frase {
-  font-size: 17px;
-  font-style: italic;
-  color: #946448;
-}
-
-/* CORAZÓN MÁGICO */
-.zona-corazon {
-  margin: 22px auto 18px;
-  position: relative;
-  width: min(100%, 360px);
-  height: 300px;
-  display: grid;
-  place-items: center;
-}
-
-.corazon-boton {
-  border: 0;
-  background: transparent;
-  cursor: pointer;
-  width: 250px;
-  height: 250px;
-  position: relative;
-  padding: 0;
-  -webkit-tap-highlight-color: transparent;
-  animation: flotar 3s ease-in-out infinite;
-  filter: drop-shadow(0 12px 15px #c52e6530);
-}
-
-.corazon-svg {
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-}
-
-.corazon-boton:focus-visible {
-  outline: 3px solid var(--dorado);
-  outline-offset: 8px;
-  border-radius: 30px;
-}
-
-.corazon-boton:active {
-  transform: scale(.92);
-}
-
-@keyframes flotar {
-  0%, 100% { transform: translateY(0) rotate(-2deg); }
-  50% { transform: translateY(-10px) rotate(2deg); }
-}
-
-.destello {
-  position: absolute;
-  color: #d49a32;
-  font-size: 29px;
-  pointer-events: none;
-  animation: brillar 2s ease-in-out infinite;
-}
-
-.d1 { top: 28px; left: 28px; }
-.d2 { top: 52px; right: 25px; animation-delay: .6s; }
-.d3 { bottom: 34px; left: 45px; animation-delay: 1s; }
-.d4 { bottom: 48px; right: 36px; animation-delay: .3s; }
-
-@keyframes brillar {
-  0%, 100% { opacity: .35; transform: scale(.8); }
-  50% { opacity: 1; transform: scale(1.25); }
-}
-
-.instruccion {
-  font-size: 18px;
-  margin: 5px 0 12px;
-}
-
-.instruccion strong {
-  display: block;
-  font-size: clamp(25px, 7vw, 35px);
-  color: var(--rosa);
-  font-style: italic;
-  margin-top: 4px;
-}
-
-.sorpresa {
-  display: none;
-  margin: 20px auto;
-  padding: 23px 18px;
-  background: #fffaf5eF;
-  border: 1px solid var(--dorado);
-  border-radius: 22px;
-  box-shadow: 0 8px 28px #8c4c2020;
-  animation: aparecer .7s ease both;
-}
-
-.sorpresa.visible { display: block; }
-
-.sorpresa h2 {
-  color: var(--rosa);
-  font-size: 29px;
-  margin: 0 0 10px;
-}
-
-.sorpresa p {
-  font-size: 17px;
-  line-height: 1.6;
-  margin: 8px 0;
-}
-
-@keyframes aparecer {
-  from { opacity: 0; transform: translateY(15px) scale(.95); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-.whatsapp {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  width: min(100%, 380px);
-  margin: 25px auto 18px;
-  padding: 16px 18px;
-  color: white;
-  text-decoration: none;
-  border: 2px solid #e9c06d;
-  border-radius: 50px;
-  background: linear-gradient(135deg, #e83e79, #a91650);
-  box-shadow: 0 7px 20px #b72b5b35;
-  font-family: Arial, sans-serif;
-  font-weight: bold;
-  font-size: 17px;
-  transition: transform .2s;
-}
-
-.whatsapp:hover { transform: translateY(-3px); }
-
-.whatsapp svg {
-  width: 29px;
-  height: 29px;
-  flex-shrink: 0;
-}
-
-.pie {
-  font-size: 16px;
-  line-height: 1.6;
-  margin-top: 20px;
-}
-
-.pie .mini-corazon {
-  color: var(--rosa);
-  font-size: 24px;
-}
-
-@media (max-width: 380px) {
-  main { padding-inline: 14px; }
-  .zona-corazon { height: 260px; }
-  .corazon-boton { width: 220px; height: 220px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
-  }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OMNILIFE & SEYTÚ | Nutrición y Cosmética Botánica</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        omni: {
+                            purple: '#6B21A8',
+                            darkPurple: '#4C1D95',
+                            orange: '#F97316',
+                            pink: '#EC4899',
+                            rose: '#F43F5E',
+                            gold: '#EAB308',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-hero {
+            background: linear-gradient(135deg, #4C1D95 0%, #7C3AED 50%, #EC4899 100%);
+        }
+        .gradient-seytu {
+            background: linear-gradient(135deg, #F43F5E 0%, #FB7185 50%, #FDA4AF 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .badge-glow {
+            box-shadow: 0 0 15px rgba(236, 72, 153, 0.5);
+        }
+    </style>
 </head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased pb-20 md:pb-0">
 
-<body>
-<main>
-  <div class="flores" aria-hidden="true">🌸 ✨ 🌷</div>
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center space-x-2">
+                <span class="text-2xl font-black tracking-wider text-purple-900">OMNILIFE</span>
+                <span class="text-2xl font-light text-pink-600">|</span>
+                <span class="text-2xl font-bold text-pink-600 tracking-widest">SEYTÚ</span>
+            </a>
 
-  <h1>
-    Mes de las
-    <span>Madres</span>
-  </h1>
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-gray-700">
+                <a href="#inicio" class="hover:text-purple-700 transition">Inicio</a>
+                <a href="#catalogo" onclick="switchTab('todos')" class="hover:text-purple-700 transition">Catálogo</a>
+                <a href="#catalogo" onclick="switchTab('seytu')" class="text-pink-600 font-semibold hover:text-pink-700 transition">SEYTÚ Cosmética</a>
+                <a href="#catalogo" onclick="switchTab('omnilife')" class="text-purple-700 font-semibold hover:text-purple-800 transition">Nutrición OMNILIFE</a>
+                <a href="#beneficios" class="hover:text-purple-700 transition">Beneficios</a>
+                <a href="#contacto" class="hover:text-purple-700 transition">Contacto</a>
+            </nav>
 
-  <p class="frase">Porque ellas merecen lo mejor… ♡</p>
+            <!-- CTA Button -->
+            <a href="https://wa.me/542995053620?text=Hola!%20Deseo%20más%20información%20sobre%20los%20productos%20y%20envíos%20a%20EE.%20UU." 
+               target="_blank" 
+               class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-full text-white bg-green-500 hover:bg-green-600 font-semibold shadow-lg hover:shadow-green-500/30 transition transform hover:-translate-y-0.5">
+                <i class="fab fa-whatsapp text-xl mr-2"></i> Pedir por WhatsApp
+            </a>
+        </div>
+    </header>
 
-  <div class="zona-corazon">
-    <span class="destello d1" aria-hidden="true">✧</span>
-    <span class="destello d2" aria-hidden="true">✦</span>
-    <span class="destello d3" aria-hidden="true">✧</span>
-    <span class="destello d4" aria-hidden="true">✦</span>
+    <!-- HERO SECTION -->
+    <section id="inicio" class="gradient-hero text-white py-16 lg:py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/10"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <div class="space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-md px-4 py-1.5 rounded-full text-sm font-medium text-pink-100 border border-white/30">
+                        <i class="fas fa-shipping-fast text-yellow-300"></i>
+                        <span>Envíos directos a todo Estados Unidos y LATAM</span>
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                        Salud Integral y <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-200 via-yellow-200 to-white">
+                            Belleza Botánica
+                        </span>
+                    </h1>
+                    
+                    <p class="text-lg text-purple-100 max-w-2xl mx-auto lg:mx-0">
+                        Descubre el equilibrio perfecto entre la suplementación avanzada de <strong class="text-white">OMNILIFE</strong> y la cosmética hipoalergénica de <strong class="text-white">SEYTÚ</strong>. Nutrición por dentro, luminosidad por fuera.
+                    </p>
 
-    <button class="corazon-boton" id="corazon"
-      type="button" aria-label="Tocar el corazón para descubrir la sorpresa"
-      aria-controls="sorpresa" aria-expanded="false">
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#catalogo" onclick="switchTab('seytu')" class="w-full sm:w-auto px-8 py-4 bg-pink-500 hover:bg-pink-600 text-white font-bold rounded-xl shadow-lg hover:shadow-pink-500/40 transition text-center">
+                            <i class="fas fa-sparkles mr-2"></i> Descubrir SEYTÚ
+                        </a>
+                        <a href="#catalogo" onclick="switchTab('omnilife')" class="w-full sm:w-auto px-8 py-4 bg-white text-purple-900 hover:bg-purple-50 font-bold rounded-xl shadow-lg transition text-center">
+                            <i class="fas fa-leaf mr-2 text-green-600"></i> Nutrición OMNILIFE
+                        </a>
+                    </div>
 
-      <svg class="corazon-svg" viewBox="0 0 300 280"
-        xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <defs>
-          <linearGradient id="cristal" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#fff" stop-opacity=".95"/>
-            <stop offset="25%" stop-color="#ffb4d0" stop-opacity=".8"/>
-            <stop offset="55%" stop-color="#f56b9e" stop-opacity=".65"/>
-            <stop offset="78%" stop-color="#fff0f5" stop-opacity=".9"/>
-            <stop offset="100%" stop-color="#df3975" stop-opacity=".85"/>
-          </linearGradient>
-          <linearGradient id="borde" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#fff4c5"/>
-            <stop offset="35%" stop-color="#dba33f"/>
-            <stop offset="60%" stop-color="#fff0ad"/>
-            <stop offset="100%" stop-color="#bd7a24"/>
-          </linearGradient>
-          <radialGradient id="luz" cx="35%" cy="25%" r="75%">
-            <stop offset="0%" stop-color="#fff" stop-opacity=".95"/>
-            <stop offset="45%" stop-color="#fff" stop-opacity=".18"/>
-            <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
-          </radialGradient>
-        </defs>
+                    <!-- Guarantee badges -->
+                    <div class="pt-6 grid grid-cols-3 gap-4 border-t border-white/20 text-center text-xs sm:text-sm">
+                        <div class="space-y-1">
+                            <i class="fas fa-shield-heart text-2xl text-pink-300"></i>
+                            <p class="font-medium">Hipoalergénico</p>
+                        </div>
+                        <div class="space-y-1">
+                            <i class="fas fa-tint-slash text-2xl text-blue-300"></i>
+                            <p class="font-medium">Resistente al Agua</p>
+                        </div>
+                        <div class="space-y-1">
+                            <i class="fas fa-paw text-2xl text-green-300"></i>
+                            <p class="font-medium">Cruelty Free</p>
+                        </div>
+                    </div>
+                </div>
 
-        <path d="M150 255 C125 229 24 163 24 92
-          C24 26 102 13 150 72
-          C198 13 276 26 276 92
-          C276 163 175 229 150 255Z"
-          fill="url(#borde)" stroke="#fff2bd" stroke-width="3"/>
+                <!-- Banner Feature -->
+                <div class="relative flex justify-center">
+                    <div class="relative w-full max-w-md glass-card p-6 rounded-3xl shadow-2xl text-gray-800 transform hover:rotate-1 transition duration-300 border border-white/50">
+                        <span class="absolute -top-4 right-6 bg-pink-600 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-md">
+                            Destacado SEYTÚ
+                        </span>
+                        
+                        <div class="h-64 bg-gradient-to-br from-pink-100 to-rose-50 rounded-2xl flex items-center justify-center mb-6 overflow-hidden relative">
+                            <i class="fas fa-magic text-8xl text-pink-300 opacity-60"></i>
+                            <div class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
+                                <span class="text-3xl font-extrabold text-pink-700">SEYTÚ</span>
+                                <span class="text-sm font-semibold text-gray-600 tracking-widest mt-1">LÍNEA DE BELLEZA</span>
+                                <p class="text-xs text-gray-500 mt-2">Maquillaje Orgánico • Cuidado Facial • Botánico</p>
+                            </div>
+                        </div>
 
-        <path d="M150 244 C125 219 36 158 36 94
-          C36 39 102 26 150 84
-          C198 26 264 39 264 94
-          C264 158 175 219 150 244Z"
-          fill="url(#cristal)" stroke="#fff5fa" stroke-width="3"/>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Línea SEYTÚ Cosmética</h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Fórmulas avanzadas libres de parabenos, no probadas en animales e hipoalergénicas. Diseñadas para resistir el ritmo del día a día.
+                        </p>
 
-        <path d="M150 231 C122 207 49 153 49 98
-          C49 54 103 45 150 99
-          C197 45 251 54 251 98
-          C251 153 178 207 150 231Z"
-          fill="url(#luz)" stroke="#fff" stroke-opacity=".75"
-          stroke-width="2"/>
+                        <a href="https://wa.me/542995053620?text=Hola!%20Me%20interesa%20conocer%20el%20catálogo%20completo%20de%20SEYTÚ%20Cosmética%20para%20EE.%20UU." 
+                           target="_blank"
+                           class="w-full py-3 bg-gradient-to-r from-pink-500 to-rose-600 hover:from-pink-600 hover:to-rose-700 text-white font-bold rounded-xl flex items-center justify-center gap-2 shadow-md transition">
+                            <i class="fab fa-whatsapp text-lg"></i> Asesoría Personalizada
+                        </a>
+                    </div>
+                </div>
 
-        <path d="M61 88 C65 52 102 48 126 70"
-          fill="none" stroke="#fff" stroke-width="7"
-          stroke-linecap="round" opacity=".9"/>
+            </div>
+        </div>
+    </section>
 
-        <path d="M174 68 C204 48 234 67 239 89"
-          fill="none" stroke="#fff" stroke-width="4"
-          stroke-linecap="round" opacity=".8"/>
+    <!-- SEYTÚ HIGHLIGHT FEATURE SECTION -->
+    <section class="py-16 bg-white border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-pink-600 font-bold uppercase tracking-wider text-sm">Tecnología en Belleza</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2">¿Por qué elegir SEYTÚ Cosmética?</h2>
+                <p class="text-gray-600 mt-3">Diseñada para nutrir tu piel mientras resaltas tu belleza natural con la más alta calidad cosmética.</p>
+            </div>
 
-        <path d="M53 130 C76 180 124 205 148 226"
-          fill="none" stroke="#fff" stroke-width="3"
-          stroke-linecap="round" opacity=".7"/>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="p-6 bg-pink-50/50 rounded-2xl border border-pink-100 text-center hover:shadow-lg transition">
+                    <div class="w-14 h-14 bg-pink-500 text-white rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl shadow-md">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Ingredientes Botánicos</h3>
+                    <p class="text-sm text-gray-600">Extractos naturales como Aloe Vera, Manzanilla y Ginseng para un cuidado suave y efectivo.</p>
+                </div>
 
-        <path d="M150 84 C198 26 264 39 264 94
-          C264 158 175 219 150 244"
-          fill="none" stroke="#f9b3d0" stroke-width="2"/>
+                <div class="p-6 bg-pink-50/50 rounded-2xl border border-pink-100 text-center hover:shadow-lg transition">
+                    <div class="w-14 h-14 bg-pink-500 text-white rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl shadow-md">
+                        <i class="fas fa-tint-slash"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Resistente al Agua</h3>
+                    <p class="text-sm text-gray-600">Maquillaje de larga duración a prueba de agua y sudor, ideal para todo el día.</p>
+                </div>
 
-        <circle cx="225" cy="110" r="7" fill="#fff" opacity=".8"/>
-        <path d="M225 95 V125 M210 110 H240"
-          stroke="#fff" stroke-width="2" opacity=".8"/>
-        <circle cx="92" cy="159" r="4" fill="#fff"/>
-        <circle cx="182" cy="194" r="3" fill="#fff"/>
-      </svg>
-    </button>
-  </div>
+                <div class="p-6 bg-pink-50/50 rounded-2xl border border-pink-100 text-center hover:shadow-lg transition">
+                    <div class="w-14 h-14 bg-pink-500 text-white rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl shadow-md">
+                        <i class="fas fa-allergies"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">100% Hipoalergénico</h3>
+                    <p class="text-sm text-gray-600">Libre de parabenos y tóxicos. Cuida y protege incluso las pieles más sensibles.</p>
+                </div>
 
-  <p class="instruccion">
-    Tocá el corazón y
-    <strong>descubrí la sorpresa</strong>
-  </p>
+                <div class="p-6 bg-pink-50/50 rounded-2xl border border-pink-100 text-center hover:shadow-lg transition">
+                    <div class="w-14 h-14 bg-pink-500 text-white rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl shadow-md">
+                        <i class="fas fa-paw"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Libre de Crueldad</h3>
+                    <p class="text-sm text-gray-600">Ninguno de nuestros productos ni ingredientes es testeado en animales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <section class="sorpresa" id="sorpresa" aria-live="polite">
-    <h2>💝 ¡Esta sorpresa es para vos!</h2>
-    <p>
-      Te invitamos a vivir un momento especial,
-      dedicado a tu belleza y bienestar.
-    </p>
-    <p>
-      🌸 <strong>¡Sumate a nuestra experiencia especial!</strong> 🌸
-    </p>
-    <p>Escribinos por WhatsApp para conocer todos los detalles.</p>
-  </section>
+    <!-- PRODUCT CATALOG WITH FILTER TABS -->
+    <section id="catalogo" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900">Catálogo de Productos</h2>
+                <p class="text-gray-600 mt-2">Selecciona la línea que deseas explorar o revisa todos nuestros productos disponibles para envíos a EE. UU.</p>
+                
+                <!-- Category Filter Buttons -->
+                <div class="flex flex-wrap justify-center gap-3 mt-8">
+                    <button id="tab-todos" onclick="switchTab('todos')" class="px-6 py-2.5 rounded-full font-bold text-sm transition shadow-sm bg-purple-700 text-white">
+                        <i class="fas fa-th-large mr-2"></i> Todos
+                    </button>
+                    <button id="tab-seytu" onclick="switchTab('seytu')" class="px-6 py-2.5 rounded-full font-bold text-sm transition shadow-sm bg-white text-gray-700 hover:bg-pink-50 hover:text-pink-600">
+                        <i class="fas fa-sparkles mr-2 text-pink-500"></i> SEYTÚ Cosmética
+                    </button>
+                    <button id="tab-omnilife" onclick="switchTab('omnilife')" class="px-6 py-2.5 rounded-full font-bold text-sm transition shadow-sm bg-white text-gray-700 hover:bg-purple-50 hover:text-purple-700">
+                        <i class="fas fa-heartbeat mr-2 text-purple-600"></i> Nutrición OMNILIFE
+                    </button>
+                </div>
+            </div>
 
-  <a class="whatsapp"
-    href="https://wa.me/54995209750?text=Hola%2C%20quiero%20conocer%20la%20sorpresa%20del%20Mes%20de%20las%20Madres."
-    target="_blank" rel="noopener noreferrer">
-    <svg viewBox="0 0 24 24" fill="none"
-      stroke="currentColor" stroke-width="1.8"
-      stroke-linecap="round" stroke-linejoin="round"
-      aria-hidden="true">
-      <path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-5.1A8.5 8.5 0 1 1 21 11.5Z"/>
-      <path d="M8.5 8.5c.6 2.4 2.6 4.4 5 5l1.3-1.3 2 1c-.2 1.5-1.3 2.3-2.8 2.1-3.6-.6-6.7-3.7-7.3-7.3-.2-1.5.6-2.6 2.1-2.8l1 2-1.3 1.3Z"/>
-    </svg>
-    <span>Anotate por WhatsApp</span>
-  </a>
+            <!-- PRODUCT GRID -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
-  <div class="pie">
-    Un pequeño gesto,<br>
-    para una gran mamá
-    <div class="mini-corazon">♡ ✨ ♡</div>
-  </div>
-</main>
+                <!-- SEYTÚ PRODUCT 1: ESPUMA LIMPIADORA -->
+                <div class="product-card seytu bg-white rounded-3xl shadow-sm hover:shadow-xl transition border border-gray-100 overflow-hidden flex flex-col">
+                    <div class="relative bg-gradient-to-br from-pink-50 to-rose-100 p-8 flex items-center justify-center h-64">
+                        <span class="absolute top-4 left-4 bg-pink-600 text-white text-xs font-bold px-3 py-1 rounded-full">SEYTÚ</span>
+                        <i class="fas fa-pump-soap text-7xl text-pink-400 opacity-80"></i>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="text-xs font-semibold text-pink-600 uppercase tracking-wider mb-1">Cuidado Facial</div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Espuma Limpiadora Facial</h3>
+                            <p class="text-gray-600 text-sm mb-4">Limpieza profunda que ayuda a remover impurezas, aclarando la piel de forma natural con extractos de Aloe Vera y Moringa.</p>
+                        </div>
+                        <a href="https://wa.me/542995053620?text=Hola!%20Quiero%20comprar%20la%20Espuma%20Limpiadora%20Facial%20SEYTÚ.%20¿Cuál%20es%20el%20precio%20con%20envío%20a%20EE.%20UU.?" 
+                           target="_blank"
+                           class="w-full py-3 bg-pink-500 hover:bg-pink-600 text-white font-bold rounded-xl flex items-center justify-center gap-2 transition">
+                            <i class="fab fa-whatsapp text-lg"></i> Comprar / Consultar
+                        </a>
+                    </div>
+                </div>
 
-<script>
-const boton = document.getElementById("corazon");
-const sorpresa = document.getElementById("sorpresa");
+                <!-- SEYTÚ PRODUCT 2: SUERO HIDRATACION PROFUNDA -->
+                <div class="product-card seytu bg-white rounded-3xl shadow-sm hover:shadow-xl transition border border-gray-100 overflow-hidden flex flex-col">
+                    <div class="relative bg-gradient-to-br from-pink-50 to-rose-100 p-8 flex items-center justify-center h-64">
+                        <span class="absolute top-4 left-4 bg-pink-600 text-white text-xs font-bold px-3 py-1 rounded-full">SEYTÚ</span>
+                        <i class="fas fa-vial text-7xl text-pink-400 opacity-80"></i>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="text-xs font-semibold text-pink-600 uppercase tracking-wider mb-1">Cuidado Suero</div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Suero Hidratación Profunda</h3>
+                            <p class="text-gray-600 text-sm mb-4">Con Ácido Hialurónico y Péptidos. Brinda elasticidad, firmeza y humectación continua a capas profundas de la piel.</p>
+                        </div>
+                        <a href="https://wa.me/542995053620?text=Hola!%20Deseo%20información%20y%20precio%20del%20Suero%20de%20Hidratación%20Profunda%20con%20Ácido%20Hialurónico%20SEYTÚ%20para%20EE.%20UU." 
+                           target="_blank"
+                           class="w-full py-3 bg-pink-500 hover:bg-pink-600 text-white font-bold rounded-xl flex items-center justify-center gap-2 transition">
+                            <i class="fab fa-whatsapp text-lg"></i> Comprar / Consultar
+                        </a>
+                    </div>
+                </div>
 
-boton.addEventListener("click", () => {
-  const abierta = sorpresa.classList.toggle("visible");
-  boton.setAttribute("aria-expanded", String(abierta));
+                <!-- SEYTÚ PRODUCT 3: MAQUILLAJE LIQUIDO UP+ -->
+                <div class="product-card seytu bg-white rounded-3xl shadow-sm hover:shadow-xl transition border border-gray-100 overflow-hidden flex flex-col">
+                    <div class="relative bg-gradient-to-br from-pink-50 to-rose-100 p-8 flex items-center justify-center h-64">
+                        <span class="absolute top-4 left-4 bg-pink-600 text-white text-xs font-bold px-3 py-1 rounded-full">SEYTÚ</span>
+                        <i class="fas fa-paint-brush text-7xl text-pink-400 opacity-80"></i>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="text-xs font-semibold text-pink-600 uppercase tracking-wider mb-1">Maquillaje Botánico</div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Maquillaje Líquido UP+</h3>
+                            <p class="text-gray-600 text-sm mb-4">A prueba de agua y sudor. Cobertura total, acabado mate mate profesional y enriquecido con Colágeno Hidrolizado.</p>
+                        </div>
+                        <a href="https://wa.me/542995053620?text=Hola!%20Quiero%20consultar%20por%20los%20tonos%20del%20Maquillaje%20Líquido%20UP%2B%20SEYTÚ%20para%20EE.%20UU." 
+                           target="_blank"
+                           class="w-full py-3 bg-pink-500 hover:bg-pink-600 text-white font-bold rounded-xl flex items-center justify-center gap-2 transition">
+                            <i class="fab fa-whatsapp text-lg"></i> Comprar / Consultar
+                        </a>
+                    </div>
+                </div>
 
-  if (abierta) {
-    sorpresa.scrollIntoView({ behavior: "smooth", block: "nearest" });
-  }
-});
-</script>
-</body>
-</html>
+                <!-- SEYTÚ PRODUCT 4: SUERO CONTORNO DE OJOS / GEL OMEGATOPIC -->
+                <div class="product-card seytu bg-white rounded-3xl shadow-sm hover:shadow-xl transition border border-gray-100 overflow-hidden flex flex-col">
+                    <div class="relative bg-gradient-to-br from-pink-50 to-rose-100 p-8 flex items-center justify-center h-64">
+                        <span clas
